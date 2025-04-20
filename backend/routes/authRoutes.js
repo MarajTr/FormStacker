@@ -1,5 +1,4 @@
 import express from 'express'
-import axios from 'axios'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { PrismaClient } from '@prisma/client';
