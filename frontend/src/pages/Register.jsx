@@ -18,7 +18,7 @@ const Register = (res) => {
   const handleSubmit= async(change)=>{
     change.preventDefault()
     try{
-      const response = await axios.post('http://localhost:5000/auth/register', values)  //somechange on future
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, values)  //somechange on future
       if(response.status ==201){
           navigate('/login')
       }
@@ -78,53 +78,3 @@ const Register = (res) => {
 };
 
 export default Register;
-
-// import React, { useState } from "react";
-// import axios from "axios";
-
-// function Register() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [username, setUsername] = useState("");
-
-//   const register = async (e) => {
-//     e.preventDefault();
-//     try {
-//       await axios.post("http://localhost:5000/auth/register", {
-//         username, email, password
-//       });
-//       alert("Registered! You can now login.");
-//     } catch (err) {
-//       alert("Registration failed");
-//     }
-//   };
-
-//   return (
-//     <form onSubmit={register}>
-//       <input
-//         type="text"
-//         value={username}
-//         onChange={(e) => setUsername(e.target.value)}
-//         placeholder="Username"
-//         required
-//       />
-//       <input
-//         type="email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//         placeholder="Email"
-//         required
-//       />
-//       <input
-//         type="password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//         placeholder="Password"
-//         required
-//       />
-//       <button type="submit">Register</button>
-//     </form>
-//   );
-// }
-
-// export default Register;
