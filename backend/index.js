@@ -15,7 +15,7 @@ const supabase = createClient(
 app.use(cors({
   origin: [
     process.env.FRONTEND_URL, // Your Vercel production URL
-    'http://localhost:3000'   // Local frontend (React/Vue typically uses port 3000)
+    'http://localhost:5000'   // Local frontend (React/Vue typically uses port 3000)
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
