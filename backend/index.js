@@ -13,7 +13,7 @@ const  supabase = createClient(
   process.env.SUPABASE_KEY
 );
 app.use(cors({
-  origin: "form-stacker-git-main-marajtrs-projects.vercel.app",
+  origin: "https://form-stacker-256fkxae8-marajtrs-projects.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
