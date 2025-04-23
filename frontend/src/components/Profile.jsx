@@ -35,7 +35,7 @@ function Profile() {
             // 2. Send URL to your backend
             const token = localStorage.getItem("token");
             await axios.patch(
-                "http://localhost:5000/auth/image",
+                "https://formstacker-restapi.onrender.com/auth/image",
                 { profileImage: cloudinaryResponse.data.secure_url },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
