@@ -13,12 +13,9 @@ const  supabase = createClient(
   process.env.SUPABASE_KEY
 );
 app.use(cors({
-  origin: [
-    process.env.FRONTEND_URL, // Your Vercel production URL
-    'http://localhost:5000'   // Local frontend (React/Vue typically uses port 3000)
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
+  origin: "form-stacker-git-main-marajtrs-projects.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 app.use(express.json());
 app.use('/auth', authRouter)
