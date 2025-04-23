@@ -17,7 +17,7 @@ const Login = (res) => {
   const handleSubmit= async(change)=>{
     change.preventDefault()
     try{
-      const response = await axios.post('https://formstacker-restapi.onrender.com/login', values)  //somechange on future
+      const response = await axios.post('https://formstacker-restapi.onrender.com/auth/login', values)  //somechange on future
       if(response.status ==200){
           localStorage.setItem('token',response.data.token)
           navigate('/')

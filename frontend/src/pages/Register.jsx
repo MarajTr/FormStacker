@@ -18,7 +18,7 @@ const Register = (res) => {
   const handleSubmit= async(change)=>{
     change.preventDefault()
     try{
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, values)  //somechange on future
+      const response = await axios.post("https://formstacker-restapi.onrender.com/auth/register", values)  //somechange on future
       if(response.status ==201){
           navigate('/login')
       }

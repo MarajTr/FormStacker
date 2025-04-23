@@ -8,7 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 dotenv.config()
 const app = express();
 const PORT = 5000;
-const supabase = createClient(
+const  supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_KEY
 );
@@ -23,3 +23,5 @@ app.use(cors({
 app.use(express.json());
 app.use('/auth', authRouter)
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+export default supabase;
+export { supabase };  
