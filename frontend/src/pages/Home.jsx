@@ -22,7 +22,7 @@ const Home = () => {
               return;
           }
   
-          const response = await axios.get("http://localhost:5000/auth/home", {
+          const response = await axios.get("https://formstacker-restapi.onrender.com/auth/home", {
             
               headers: { Authorization: `Bearer ${token}` },
           });
@@ -98,7 +98,7 @@ const deleteUsers = async (navigate) => {
   try {
     // Delete other users first if any
     if (othersEmails.length > 0) {
-      await axios.delete("http://localhost:5000/auth/delete", {
+      await axios.delete("https://formstacker-restapi.onrender.com/authdelete", {
         headers: { Authorization: `Bearer ${token}` },
         data: { emails: othersEmails },
       });
@@ -108,7 +108,7 @@ const deleteUsers = async (navigate) => {
 
     // Delete own account if selected (after others are deleted)
     if (ownEmail.length > 0) {
-      await axios.delete("http://localhost:5000/auth/delete", {
+      await axios.delete("https://formstacker-restapi.onrender.com/auth/delete", {
         headers: { Authorization: `Bearer ${token}` },
         data: { emails: ownEmail },
       });
@@ -142,7 +142,7 @@ const blockSelectedUsers = async (block) => {
       const results = await Promise.allSettled(
         others.map(email =>
           axios.patch(
-            "http://localhost:5000/auth/block",
+            "https://formstacker-restapi.onrender.com/auth/block",
             { email, block },
             { headers: { Authorization: `Bearer ${token}` } }
           )
@@ -159,7 +159,7 @@ const blockSelectedUsers = async (block) => {
     if (block && self.length > 0) {
       try {
         await axios.patch(
-          "http://localhost:5000/auth/block",
+          "https://formstacker-restapi.onrender.com/auth/block",
           { email: loggedInEmail, block },
           { headers: { Authorization: `Bearer ${token}` } }
         );
