@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Header from "../components/Header";
+import Mainbody from "../components/Mainbody";
+import Template from "../components/Template";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -181,7 +183,11 @@ const blockSelectedUsers = async (block) => {
 };
 
 return (
-<Header/>
+  <div>
+    <Header />
+    <Template />
+    <Mainbody/>
+  </div>
 );
 };
 export default Home;
