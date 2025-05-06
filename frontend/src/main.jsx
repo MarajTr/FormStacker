@@ -1,10 +1,17 @@
-import { StrictMode } from 'react'
+import React, { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import App from './App.jsx'
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+import * as ServiceWorker from './serviceWorker.js'
+import { StateProvider } from './components/StateProvider.jsx'
+import reducer, { initialState } from './components/reducer.jsx'
+import { BrowserRouter } from 'react-router-dom'
+ReactDOM.render(
+  <React.StrictMode>
+  <StateProvider initialState={initialState} reducer={reducer}>
     <App />
-  </StrictMode>,
+    </StateProvider>
+  </React.StrictMode>,
+  
+  document.getElementById('root') 
 )
+ServiceWorker.unregister();

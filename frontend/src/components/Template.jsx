@@ -1,18 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { IconButton } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import uuid from 'react-uuid';
 function Template() {
+  const navigate = useNavigate();
   const templates = [
     { title: "Blank form", img: "https://res.cloudinary.com/dqlkmngsz/image/upload/v1745648763/forms-blank-googlecolors_fsfe3x.png" },
     { title: "Contact Information", img: "https://res.cloudinary.com/dqlkmngsz/image/upload/v1745649884/contract_tcu8nd.png" },
     { title: "T-Shirt Sign Up", img: "https://res.cloudinary.com/dqlkmngsz/image/upload/v1745650019/t-shirt_aik8a4.png" },
   ];
+
  const createForm = () => {
     
-    console.log("Creating a new form...");
+    const formId = uuid(); // Generate a unique form ID using uuid
+    
+    navigate("/form/"+formId); // Navigate to the form page with the unique ID
   }
   return (
     <div className="bg-light py-5">
